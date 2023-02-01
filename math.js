@@ -40,6 +40,15 @@ function calcularTriangulo (lado1, lado2, base, altura) {
     }    
 }
 
+function calcAltTriangulo(lado1, base) {
+    if (lado1 == base) {
+        console.warn('Este no es un triángulo isosceles')
+    } else {
+        // h= raizCuadrada (lado1**2 - (b**2)/4 )
+        return Math.sqrt( (lado1**2) - ((base**2) / 4) );
+    }
+}
+
 console.log({
     ladoTriangulo1,
     ladoTriangulo,
