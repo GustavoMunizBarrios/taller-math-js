@@ -11,5 +11,5 @@ function calcPriceDiscount() {
     const priceDiscount = (price - ((price * discount)/ 100));
     console.log(priceDiscount);
 
-    pResult.innerText = '$' + priceDiscount;
+    pResult.innerText = '$ ' + priceDiscount;
 }

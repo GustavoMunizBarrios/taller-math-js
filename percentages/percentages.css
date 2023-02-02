@@ -106,4 +106,14 @@ main div input {
 .input-descuento {
     margin-bottom: 50px;
 }
+.textPrice {
+    font-size: 20px;
+    padding-top: 20px;
+}
+.result {
+    color: #06296c;
+    font-size: 30px;
+    margin: 0;
+    padding: 0 0 0px 160px;
+}
 
