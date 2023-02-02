@@ -1,0 +1,109 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    padding-bottom: 50px;
+}
+
+header h1 {
+    color: #06296c;
+}
+
+div p {
+    color: #06296c;
+    font-weight: 700;
+}
+main .button {
+   
+/* <button class="button-27" role="button">Button 27</button> */
+
+  appearance: none;
+  background-color:  #06296c;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+main div input {
+  font-size: 16px;
+  color: #333;
+  padding: 10px 22px;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 2px solid #06296c;
+  transition: all 0.3s;
+}
+
+.button:disabled {
+  pointer-events: none;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-1px);
+}
+
+.button:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+.card {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    padding: 40px 60px;
+    width: 400px;
+    height: 500px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+
+}
+.input-producto {
+    margin-bottom: 30px;
+}
+.input-descuento {
+    margin-bottom: 50px;
+}
+
