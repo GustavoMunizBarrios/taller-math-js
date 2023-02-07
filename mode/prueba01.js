@@ -19,6 +19,7 @@ Output:
 -----------------------------------------------|
 */
 
+//************ SOLUCIÓN: ********************************
 
 const obj = {
     123: 'Juanito Alcachofa',
@@ -28,7 +29,6 @@ const obj = {
 function solution(obj) {
     const array = [];
     const arrayObj = Object.entries(obj);
-    const numbersOfArrays = arrayObj.length - 1; 
     console.log(arrayObj);
 
     for (let i=0; i < arrayObj.length; i++) {
@@ -39,5 +39,35 @@ function solution(obj) {
     }
     //console.log(array);
     return array;
-
 }
+//****************************************************** */
+
+
+/****** SOLUCIÓN simplificada ******************************
+
+function solution(obj) {
+  return Object.entries(obj).map(value => {
+    return { id: value[0], name: value[1]}})
+}
+
+*********************************************************
+*/
+
+/* El método .map
+
+El método .map() en JavaScript es un método de arrays que permite 
+transformar cada elemento del array y devolver un nuevo array con 
+los resultados de la transformación. Es decir, itera sobre cada 
+elemento del array y aplica una función dada a cada uno de ellos.
+
+Aquí hay un ejemplo de uso:
+
+-----------------------------------------------------------|
+let numbers = [1, 2, 3, 4, 5];                             |
+let doubledNumbers = numbers.map(function(number) {        |
+  return number * 2;                                       |
+});                                                        |
+console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]   |
+-----------------------------------------------------------|
+
+*/
