@@ -8,6 +8,16 @@ MainMath.esPar = function esPar(numeros) {
     }
     // Es decir es impar 
 }
+MainMath.ordenarLista = function ordenarLista(listaDesordenada) {
+    function ordenarListaSort(valorAcumulado, nuevoValor) {
+      return valorAcumulado - nuevoValor;
+    }
+    
+    // const lista = listaDesordenada.sort((a,b) => a-b);
+    const lista = listaDesordenada.sort(ordenarListaSort);
+    
+    return lista;
+  }
 
 MainMath.calcularModa = function calcularModa(lista) {
     const listaCount = {}; // objeto llamado listaCount
@@ -32,70 +42,36 @@ MainMath.calcularModa = function calcularModa(lista) {
 }
 
 MainMath.calcularMediana = function calcularMediana(listaDesordenada) {
-    const numeros = ordenarLista(listaDesordenada);
-    const par = esPar(numeros);
-
-    if (par) {
-        const indexMitad1ListaPar = (numeros.length / 2) - 1;//indice de la mitad inferior
-        const indexMitad2ListaPar = (numeros.length / 2); //indice de la mitad superior
-        // numeros[indexMitad1ListaPar] = numero de la mitad inferior
-        // numeros[indexMitad2ListaPar] = numero de la mitad superior
-        result = calcPromedio([numeros[indexMitad1ListaPar], numeros[indexMitad2ListaPar]]);
-        console.log('Mediana de lista par: ' + result)
+    const lista = MainMath.ordenarLista(listaDesordenada);
+    const listaEsPar = MainMath.esPar(lista);
+  
+    if (listaEsPar) {
+      const indexMitad1ListaPar = (lista.length / 2) - 1;
+      const indexMitad2ListaPar = lista.length / 2;
+      const listaMitades = [];
+      listaMitades.push(lista[indexMitad1ListaPar]);
+      listaMitades.push(lista[indexMitad2ListaPar]);
+  
+      const medianaListaPar = MainMath.calcPromedio(listaMitades);
+      return medianaListaPar;
     } else {
-        //Math.round redondea hacia arriba
-        const indexMitadListaImpar = Math.round((numeros.length / 2)-1); //esto devuelve la posicion en el array del elemento de en medio de una lista con un numero impar de elementos..
-        console.log( 'index de lista impar: ' +  indexMitadListaImpar);
-        console.log('Mediana de lista impar: '+(numeros[indexMitadListaImpar]));
+      const indexMitadListaImpar = Math.floor(lista.length / 2);
+      const medianaListaImpar = lista[indexMitadListaImpar];
+      console.log(indexMitadListaImpar);
+      console.log(medianaListaImpar);
+      return medianaListaImpar;
     }
+  }
+
+MainMath.calcPromedio = function calcularPromedio(lista) {
+function sumarTodosElementos(valorAcumulado, nuevoValor) {
+    return valorAcumulado + nuevoValor;
 }
 
-MainMath.calcPromedio = function calcPromedio (lista){
-    //sumar todos los elementos del array / cantidad de elementos
-    
-        /* //*********Forma 'for' para calcular promedio******************
-        let sumaLista = 0;
-    
-        for (let i = 0; i < lista.length; i++) {
-            sumaLista = sumaLista + lista[i];
-        }
-        //************************************************************ */
-        
-        //****** Forma com método .'reduce' para calcular promedio ************
-        function sumarTodosElementos(valorAcumulado, nuevoValor) {
-            return valorAcumulado + nuevoValor;
-        }
-        const sumaLista = lista.reduce(sumarTodosElementos());//reduce recibe como argumento a la función sumarTodosElementos()
-        //****************************************************************** */
-        
-        const promedio = sumaLista / lista.lenght;
-        console.log(promedio);
-        return promedio; 
-    
-        //*********************************************************** */
-        //************************NOTAS*******************************
-        //********************************************************** */
-    /* 
-        Arrow functions: 
-    
-        const a = (argumento1, argumento2) => {cuerpo de la función};
-        
-        Donde a es el nombre opcional de la función, argumentos son los argumentos de la función, y cuerpo de la función es el código que se ejecutará cuando se llame a la función.
-    
-        Si la función solo tiene una línea de código, se puede omitir las llaves y la palabra clave 'return':
-    
-        const a = (argumentos) => resultado;
-    
-        A continuación un ejemplo:
-    
-        const sum = (a, b) => a + b;
-        console.log( sum(1,2) );   // 3
-    */
-}
-
-MainMath.ordenarLista = function ordenarLista (listaDesordenada) {
-    const lista = listaDesordenada.sort((a,b) => a-b);
-    return lista;
+const sumaLista = lista.reduce(sumarTodosElementos);  
+const promedio = sumaLista / lista.length;
+// console.log(promedio);
+return promedio;
 }
 
 MainMath.ordenarListaBidimensional = function ordenarListaBidimensional (listaDesordenada, index) {
