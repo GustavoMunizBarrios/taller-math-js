@@ -57,8 +57,8 @@ MainMath.calcularMediana = function calcularMediana(listaDesordenada) {
     } else {
       const indexMitadListaImpar = Math.floor(lista.length / 2);
       const medianaListaImpar = lista[indexMitadListaImpar];
-      console.log(indexMitadListaImpar);
-      console.log(medianaListaImpar);
+      //console.log(indexMitadListaImpar);
+      //console.log(medianaListaImpar);
       return medianaListaImpar;
     }
   }
