@@ -139,3 +139,17 @@ function medianaGeneral() {
     return mediana;
 
 }
+
+function medianaTop10() {
+    const listaMedianas = salarios.map(people => medianaPorPersona(people.name));
+    const medianasOrdenadas = MainMath.ordenarLista(listaMedianas);
+
+    const cantidad = listaMedianas.length / 10;
+    const limite = listaMedianas.length - cantidad;
+    const top10 = medianasOrdenadas.slice(limite, medianasOrdenadas.length); //Aqui hacemos el corte en donde decidimos que es nuestro límite.
+
+    console.log({top10});
+
+    const medianaDelTop10 = MainMath.calcularMediana(top10);
+    return medianaDelTop10;
+}
