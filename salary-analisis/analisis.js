@@ -81,6 +81,7 @@ for (persona of salarios) { //
 }
 console.log({empresas});
 
+//Mediana de salarios de una empresa específica en un año específico.
 function medianaEmpresasYear(nombre, year) {
     if (!empresas[nombre]) {
         console.warn('La empresa no existe');
@@ -89,6 +90,41 @@ function medianaEmpresasYear(nombre, year) {
         console.log('La empresa no dio salarios ese año');
     } else {
         result = MainMath.calcularMediana(empresas[nombre][year]);
-        return 'La mediana de salarios de la empresa ' + nombre + ' en el año ' + year + ' es de: ' + result;
+        //return 'La mediana de salarios de la empresa ' + nombre + ' en el año ' + year + ' es de: ' + result;
+        return result;
     }
+}
+
+//Proyección de mediana de salarios del próximo año de cada empresa
+function proyecciónPorEmpresa(nombre) {
+    //primero obtenemos una lista de medianas de cada año:
+    if (!empresas[nombre]) {
+        console.warn('La empresa no existe');
+    } else {
+        const empresaYears = Object.keys(empresas[nombre]); //valores de los años de cada empresa
+        console.log(empresaYears);
+        const listaMedianaYears = empresaYears.map((year) => {
+            return medianaEmpresasYear(nombre,year);
+        });// .map nos crea un nuevo arreglo con cada iteración sobre el array de empresasYears. 
+        console.log({listaMedianaYears});
+
+        let porcentajesCrecimiento = [];
+
+        for (let i = 1; i < listaMedianaYears.length; i++) {
+            const salarioActual = listaMedianaYears[i];
+            const salarioPasado = listaMedianaYears[i - 1];
+            const crecimiento = salarioActual - salarioPasado;
+            const porcentajeCrecimiento = crecimiento / salarioPasado;
+            porcentajesCrecimiento.push(porcentajeCrecimiento);
+        }
+        const medianaPorcentajesCrecimiento = MainMath.calcularMediana(porcentajesCrecimiento);
+
+        const ultimaMediana = listaMedianaYears[listaMedianaYears.length - 1];
+        const aumento = ultimaMediana * medianaPorcentajesCrecimiento;
+        const nuevaMediana = ultimaMediana + aumento;
+
+        return nuevaMediana;
+
+    }
+
 }
